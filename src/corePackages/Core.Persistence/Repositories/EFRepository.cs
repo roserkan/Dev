@@ -22,9 +22,14 @@ public class EFRepository<TEntity> : IRepository<TEntity>
         return _entity.FirstOrDefault(predicate);
     }
 
-    public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate)
+    public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null)
     {
-        return await _entity.FirstOrDefaultAsync(predicate);
+        IQueryable<TEntity> queryable = Query();
+        queryable.Where(predicate);
+        if (include != null) queryable = include(queryable);
+        return await queryable.FirstOrDefaultAsync();
+
+        //return await _entity.FirstOrDefaultAsync();
 
     }
 

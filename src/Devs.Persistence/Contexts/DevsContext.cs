@@ -1,4 +1,5 @@
 ﻿using Core.Persistence.Repositories;
+using Core.Security.Entities;
 using Devs.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -18,7 +19,18 @@ public class DevsContext : DbContext
     {
     }
 
+
+    //normal
     public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
+    public DbSet<Technology> Technologies { get; set; }
+    public DbSet<Developer> Developers { get; set; }
+    public DbSet<SocialProfile> SocialProfiles { get; set; }
+
+
+    //base
+    public DbSet<User> Users { get; set; }
+    public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+    public DbSet<OperationClaim> OperationClaims { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

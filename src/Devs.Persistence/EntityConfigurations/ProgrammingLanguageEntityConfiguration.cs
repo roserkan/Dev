@@ -18,6 +18,11 @@ public class ProgrammingLanguageEntityConfiguration : EntityConfiguration<Progra
                 .HasColumnName("Name")
                 .HasMaxLength(20);
 
+        builder.HasMany(p => p.Technologies)
+            .WithOne(t => t.ProgrammingLanguage)
+            .HasForeignKey(t => t.ProgrammingLanguageId);
+
 
     }
 }
+

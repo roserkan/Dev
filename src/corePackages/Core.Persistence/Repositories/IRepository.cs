@@ -7,7 +7,7 @@ namespace Core.Persistence.Repositories;
 public interface IRepository<T> where T : Entity
 {
     T Get(Expression<Func<T, bool>> predicate);
-    Task<T?> GetAsync(Expression<Func<T, bool>> predicate);
+    Task<T?> GetAsync(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null);
 
 
     IPaginate<T> GetList(Expression<Func<T, bool>>? predicate = null,

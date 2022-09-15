@@ -20,21 +20,4 @@ public class RefreshToken : Entity
 
     public virtual User User { get; set; }
 
-    public RefreshToken()
-    {
-    }
-
-    public RefreshToken(int id, string token, DateTime expires, DateTime created, string createdByIp, DateTime? revoked,
-                        string revokedByIp, string replacedByToken, string reasonRevoked)
-    {
-        Id = id;
-        Token = token;
-        Expires = expires;
-        Created = created;
-        CreatedByIp = createdByIp;
-        Revoked = revoked;
-        RevokedByIp = revokedByIp;
-        ReplacedByToken = replacedByToken;
-        ReasonRevoked = reasonRevoked;
-    }
 }

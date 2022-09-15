@@ -1,8 +1,8 @@
 ﻿using Core.Persistence.Repositories;
 
-namespace Core.Security.Entities;
+namespace Devs.Domain.Entities;
 
-public class OperationClaim : Entity
+public class ProgrammingLanguage : Entity
 {
     public string Name { get; set; }
 }
